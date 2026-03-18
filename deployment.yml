@@ -1,20 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: easyshop
+  name: ecommerce-demo
+  labels:
+    app: ecommerce-demo
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: easyshop
+      app: ecommerce-demo
   template:
     metadata:
       labels:
-        app: easyshop
+        app: ecommerce-demo
     spec:
       containers:
-        - name: easyshop
-          image: trainwithshubham/easyshop-app:1
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 3000
+      - name: ecommerce-demo
+        image: weaveworksdemos/front-end:0.3.12
+        ports:
+        - containerPort: 8079
